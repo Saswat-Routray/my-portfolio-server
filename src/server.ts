@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "my-portfolio-production-ae96.up.railway.app",
     methods: ["POST"],
 }));
 
