@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: "https://my-portfolio-production-d0bf.up.railway.app/",
+    origin: "https://my-portfolio-production-d0bf.up.railway.app",
     methods: ["POST"],
 }));
 
@@ -41,7 +41,9 @@ app.post('/api/contact', async (req, res) => {
                 pass: process.env.EMAIL_PASSWORD,
             }
         });
-
+        
+        await transporter.verify();
+        
         await transporter.sendMail({
             from: email,
             to: process.env.EMAIL_TO,
