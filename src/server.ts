@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import nodemailer from "nodemailer";
 import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
@@ -15,6 +16,9 @@ app.use(cors({
 }));
 
 // app.use(cors())
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Server Fallback
 app.use(express.static(path.join(__dirname, "../my-portfolio/dist")));
