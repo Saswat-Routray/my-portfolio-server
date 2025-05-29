@@ -11,10 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: "https://my-portfolio-production-d0bf.up.railway.app",
-    methods: ["POST"],
+  origin: "https://my-portfolio-production-d0bf.up.railway.app",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
 }));
-
 // app.use(cors())
 
 const __filename = fileURLToPath(import.meta.url);
