@@ -1,34 +1,32 @@
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import nodemailer from "nodemailer";
-import path from "path";
-import { fileURLToPath } from "url";
-import bodyParser from "body-parser";
+// import express from "express";
+// import dotenv from "dotenv";
+// import cors from "cors";
+// import nodemailer from "nodemailer";
+// import path from "path";
+// import { fileURLToPath } from "url";
+// import bodyParser from "body-parser";
 
-dotenv.config();
+// dotenv.config();
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+// const app = express();
+// const PORT = process.env.PORT || 5000;
 
-// CORS setup
+
 // app.use(cors({
 //   origin: "https://my-portfolio-production-d0bf.up.railway.app",
 //   methods: ["GET", "POST", "OPTIONS"],
 //   allowedHeaders: ["Content-Type"]
 // }));
 
-app.use(cors());
 
-// Helpers for __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-// Middleware
-app.use(bodyParser.json());
-app.use(express.json());
 
-// Contact route (single definition)
+// app.use(bodyParser.json());
+// app.use(express.json());
+
+
 // app.post("/api/contact", async (req, res) => {
 //   const { name, email, subject, message } = req.body;
 
@@ -60,17 +58,31 @@ app.use(express.json());
 //     res.status(500).json({ message: "Failed to send email" });
 //   }
 // });
-app.get("/", (req, res) => {
-  res.send("Backend is working!");
-});
 
-// Optional static file fallback (for future deployment)
-// app.use(express.static(path.join(__dirname, "../my-portfolio/dist")));
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../my-portfolio/dist/index.html"));
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
 // });
 
-// Start server
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+
+dotenv.config();
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors({
+  origin: "https://my-portfolio-production-d0bf.up.railway.app",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
+}));
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("✅ Backend is live!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
