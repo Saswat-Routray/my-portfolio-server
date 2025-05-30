@@ -69,7 +69,11 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+if (!process.env.PORT) {
+  throw new Error("PORT must be defined");
+}
+const PORT = process.env.PORT;
+
 
 app.use(cors({
   origin: "https://my-portfolio-production-d0bf.up.railway.app",
