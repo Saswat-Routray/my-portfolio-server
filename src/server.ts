@@ -12,11 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // CORS setup
-app.use(cors({
-  origin: "https://my-portfolio-production-d0bf.up.railway.app",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"]
-}));
+// app.use(cors({
+//   origin: "https://my-portfolio-production-d0bf.up.railway.app",
+//   methods: ["GET", "POST", "OPTIONS"],
+//   allowedHeaders: ["Content-Type"]
+// }));
+
+app.use(cors());
 
 // Helpers for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
